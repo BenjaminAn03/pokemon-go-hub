@@ -1,4 +1,4 @@
-package com.benjamin.pokemongohub;
+package com.benjamin.pokemongohub.health;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
