@@ -18,4 +18,8 @@ public class PokemonService {
     public List<Pokemon> getAllPokemon() {
         return pokemonRepository.findAll();
     }
+
+    public List<String> getPokemonByType(String type) {
+        return pokemonRepository.findByType(type);
+    }
 }
