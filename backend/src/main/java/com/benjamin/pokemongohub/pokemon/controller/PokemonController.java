@@ -1,0 +1,25 @@
+package com.benjamin.pokemongohub.pokemon.controller;
+
+import java.util.List;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.benjamin.pokemongohub.pokemon.Pokemon;
+import com.benjamin.pokemongohub.pokemon.service.PokemonService;
+
+@RestController
+@RequestMapping("/pokemon")
+public class PokemonController {
+    private final PokemonService pokemonService;
+
+    public PokemonController(PokemonService pokemonService) {
+        this.pokemonService = pokemonService;
+    }
+
+    @GetMapping
+    public List<Pokemon> getAllPokemon() {
+        return pokemonService.getAllPokemon();
+    }
+}

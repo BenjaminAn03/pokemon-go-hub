@@ -1,5 +1,5 @@
 CREATE TABLE pokemon (
-    id SERIAL PRIMARY KEY,
+    id BIGSERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL, 
     type1 VARCHAR(20) NOT NULL, 
     type2 VARCHAR(20),
