@@ -1,4 +1,4 @@
-CREATE TABLE pokemon (
+CREATE TABLE pokedex (
     id BIGSERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL, 
     type1 VARCHAR(20) NOT NULL, 

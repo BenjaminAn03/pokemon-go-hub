@@ -22,4 +22,9 @@ public class PokemonService {
     public List<String> getPokemonByType(String type) {
         return pokemonRepository.findByType(type);
     }
+
+    public Pokemon getPokemonByName(String name) {
+        return pokemonRepository.findByNameIgnoreCase(name)
+                .orElseThrow(() -> new RuntimeException("Pokemon not found"));
+    }
 }

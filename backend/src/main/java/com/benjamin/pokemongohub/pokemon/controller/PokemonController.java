@@ -28,4 +28,9 @@ public class PokemonController {
     public List<String> getPokemonByType(@RequestParam String type) {
         return pokemonService.getPokemonByType(type);
     }
+
+    @GetMapping(params = "name")
+    public Pokemon getPokemonByName(@RequestParam String name) {
+        return pokemonService.getPokemonByName(name);
+    }
 }
