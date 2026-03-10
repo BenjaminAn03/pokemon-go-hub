@@ -8,17 +8,22 @@ import org.springframework.stereotype.Service;
 
 import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
 import com.benjamin.pokemongohub.pokemon.entity.PokemonStats;
+import com.benjamin.pokemongohub.pokemon.entity.TypeChart;
 import com.benjamin.pokemongohub.pokemon.repository.CpmRepository;
 import com.benjamin.pokemongohub.pokemon.repository.PokemonRepository;
+import com.benjamin.pokemongohub.pokemon.repository.TypeChartRepository;
 
 @Service
 public class PokemonService {
     private final PokemonRepository pokemonRepository;
     private final CpmRepository cpmRepository;
+    private final TypeChartRepository typeChartRepository;
 
-    public PokemonService(PokemonRepository pokemonRepository, CpmRepository cpmRepository) {
+    public PokemonService(PokemonRepository pokemonRepository, CpmRepository cpmRepository,
+            TypeChartRepository typeChartRepository) {
         this.pokemonRepository = pokemonRepository;
         this.cpmRepository = cpmRepository;
+        this.typeChartRepository = typeChartRepository;
     }
 
     public List<Pokemon> getAllPokemon() {
@@ -38,6 +43,20 @@ public class PokemonService {
                         / 10);
     }
 
+    private Map<String, Object> getWeaknesses(String type1, String type2) {
+        Map<String, Object> response = new LinkedHashMap<>();
+        List<TypeChart> type1Chart = typeChartRepository.findById_DefendingTypeIgnoreCase(type1.toLowerCase());
+        response.put("type1", type1Chart);
+
+        if (type2 != null) {
+            List<TypeChart> type2Chart = typeChartRepository
+                    .findById_DefendingTypeIgnoreCase(type2.toLowerCase());
+            response.put("type2", type2Chart);
+        }
+
+        return response;
+    }
+
     public Map<String, Object> getPokemonByName(String name) {
         Pokemon pokemon = pokemonRepository.findByNameIgnoreCase(name)
                 .orElseThrow(() -> new RuntimeException("Pokemon not found"));
@@ -50,6 +69,8 @@ public class PokemonService {
                 stats.getBaseStamina(),
                 cpmRepository.findById(50.0).orElseThrow().getMultiplier());
 
+        Map<String, Object> typeChart = getWeaknesses(pokemon.getType1(), pokemon.getType2());
+
         Map<String, Object> response = new LinkedHashMap<>();
 
         response.put("id", pokemon.getId());
@@ -58,6 +79,7 @@ public class PokemonService {
         response.put("type2", pokemon.getType2());
         response.put("maxCp", maxCp);
         response.put("stats", stats);
+        response.put("typeChart", typeChart);
 
         return response;
     }
