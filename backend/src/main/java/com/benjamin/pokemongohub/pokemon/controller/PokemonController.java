@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.benjamin.pokemongohub.pokemon.Pokemon;
+import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
 import com.benjamin.pokemongohub.pokemon.service.PokemonService;
 
 @RestController

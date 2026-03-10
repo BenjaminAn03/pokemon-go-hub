@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.benjamin.pokemongohub.pokemon.Pokemon;
+import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
 import com.benjamin.pokemongohub.pokemon.repository.PokemonRepository;
 
 @Service
@@ -20,7 +20,7 @@ public class PokemonService {
     }
 
     public List<String> getPokemonByType(String type) {
-        return pokemonRepository.findByType(type);
+        return pokemonRepository.findByType(type.toLowerCase());
     }
 
     public Pokemon getPokemonByName(String name) {

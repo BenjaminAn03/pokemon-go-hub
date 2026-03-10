@@ -1,8 +1,10 @@
-package com.benjamin.pokemongohub.pokemon;
+package com.benjamin.pokemongohub.pokemon.entity;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.FetchType;
 import jakarta.persistence.Table;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Column;
@@ -24,6 +26,9 @@ public class Pokemon {
     @Column(name = "type2")
     private String type2;
 
+    @OneToOne(mappedBy = "pokemon", fetch = FetchType.EAGER)
+    private PokemonStats stats;
+
     public Pokemon() {
     }
 
@@ -43,6 +48,10 @@ public class Pokemon {
         return type2;
     }
 
+    public PokemonStats getStats() {
+        return stats;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -53,5 +62,9 @@ public class Pokemon {
 
     public void setType2(String type2) {
         this.type2 = type2;
+    }
+
+    public void setStats(PokemonStats stats) {
+        this.stats = stats;
     }
 }
