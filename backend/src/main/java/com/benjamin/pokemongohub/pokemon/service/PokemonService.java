@@ -1,10 +1,9 @@
 package com.benjamin.pokemongohub.pokemon.service;
 
-import java.util.LinkedHashMap;
 import java.util.List;
-import java.util.Map;
 import org.springframework.stereotype.Service;
 
+import com.benjamin.pokemongohub.pokemon.dto.PokemonProfileDTO;
 import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
 import com.benjamin.pokemongohub.pokemon.entity.PokemonStats;
 import com.benjamin.pokemongohub.pokemon.repository.CpmRepository;
@@ -31,7 +30,8 @@ public class PokemonService {
         return pokemonRepository.findByType(type.toLowerCase());
     }
 
-    private int calculateMaxCP(Pokemon pokemon) {
+    // move CP calculation to service file
+    private int calculatePokemonMaxCP(Pokemon pokemon) {
         PokemonStats stats = pokemon.getStats();
 
         return (int) Math
@@ -42,24 +42,21 @@ public class PokemonService {
                         / 10);
     }
 
-    private Map<String, Object> buildPokemonResponse(Pokemon pokemon) {
-        Map<String, Object> response = new LinkedHashMap<>();
-
-        response.put("id", pokemon.getId());
-        response.put("name", pokemon.getName());
-        response.put("type1", pokemon.getType1());
-        response.put("type2", pokemon.getType2());
-        response.put("maxCp", calculateMaxCP(pokemon));
-        response.put("stats", pokemon.getStats());
-        response.put("typeChart", typeChartService.classifyTypeChartForPokemon(pokemon));
-
-        return response;
+    private PokemonProfileDTO createPokemonProfile(Pokemon pokemon) {
+        return new PokemonProfileDTO(
+                pokemon.getId(),
+                pokemon.getName(),
+                pokemon.getType1(),
+                pokemon.getType2(),
+                calculatePokemonMaxCP(pokemon),
+                pokemon.getStats(),
+                typeChartService.classifyTypeChartForPokemon(pokemon));
     }
 
-    public Map<String, Object> getPokemonByName(String name) {
+    public PokemonProfileDTO getPokemonByName(String name) {
         Pokemon pokemon = pokemonRepository.findByNameIgnoreCase(name)
                 .orElseThrow(() -> new RuntimeException("Pokemon not found"));
 
-        return buildPokemonResponse(pokemon);
+        return createPokemonProfile(pokemon);
     }
 }

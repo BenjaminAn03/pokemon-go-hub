@@ -1,13 +1,13 @@
 package com.benjamin.pokemongohub.pokemon.controller;
 
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.benjamin.pokemongohub.pokemon.dto.PokemonProfileDTO;
 import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
 import com.benjamin.pokemongohub.pokemon.service.PokemonService;
 
@@ -31,7 +31,7 @@ public class PokemonController {
     }
 
     @GetMapping(params = "name")
-    public Map<String, Object> getPokemonByName(@RequestParam String name) {
+    public PokemonProfileDTO getPokemonByName(@RequestParam String name) {
         return pokemonService.getPokemonByName(name);
     }
 }
