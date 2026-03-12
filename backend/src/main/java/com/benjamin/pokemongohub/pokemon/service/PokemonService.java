@@ -2,6 +2,8 @@ package com.benjamin.pokemongohub.pokemon.service;
 
 import java.util.List;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
+import org.springframework.http.HttpStatus;
 
 import com.benjamin.pokemongohub.pokemon.dto.PokemonProfileDTO;
 import com.benjamin.pokemongohub.pokemon.entity.Pokemon;
@@ -55,7 +57,7 @@ public class PokemonService {
 
     public PokemonProfileDTO getPokemonByName(String name) {
         Pokemon pokemon = pokemonRepository.findByNameIgnoreCase(name)
-                .orElseThrow(() -> new RuntimeException("Pokemon not found"));
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Pokemon not found"));
 
         return createPokemonProfile(pokemon);
     }
