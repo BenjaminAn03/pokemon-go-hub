@@ -1,7 +1,7 @@
-import SearchBar from './SearchBar';
-import { useState } from 'react';
 import axios from 'axios';
-import './App.css'
+import { useState } from 'react';
+import './App.css';
+import Header from './components/Header';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -35,16 +35,14 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen min-w-[100vw] flex-col items-center justify-center bg-green-300">
-      <main className="flex flex-col items-center justify-center gap-4 rounded bg-gray-400">
-        <form onSubmit={handleSearch}>
-          <SearchBar
-            onChange={handleChange}
-            value={search}
-            placeholder='Search...'
-          />
-        </form>
-
+    <div className="bg-goHubGreen flex min-h-screen min-w-[100vw] flex-col">
+      <Header
+        search={search}
+        onChange={handleChange}
+        onSearch={handleSearch}
+        className="flex h-16 w-full flex-row gap-3 p-3"
+      />
+      <main className="flex w-full flex-col items-center bg-gray-400">
         {pokemonProfile && (
           <pre className="text-left">
             {JSON.stringify(pokemonProfile, null, 2)}
