@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { useState } from 'react';
 import './App.css';
-import Header from './components/Header';
+import Header from './components/Header/Header';
 
 function App() {
   const [search, setSearch] = useState("")
