@@ -27,6 +27,7 @@ export default defineConfig([
     rules: {
       "tailwindcss/classnames-order": "warn", // or "error"
       "tailwindcss/enforces-shorthand": "warn",
+      "tailwindcss/no-custom-classname": "off"
     }
   },
 ])
