@@ -35,7 +35,7 @@ function App() {
   }
 
   return (
-    <div className="bg-goHubGreen flex min-h-screen min-w-[100vw] flex-col">
+    <div className="flex min-h-screen min-w-[100vw] flex-col bg-goHubGreen">
       <Header
         search={search}
         onChange={handleChange}
