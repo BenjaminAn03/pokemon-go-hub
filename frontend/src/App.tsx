@@ -2,6 +2,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
+import PokemonSectionTabs from './components/PokemonSectionTabs/PokemonSectionTabs';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -35,14 +36,15 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen min-w-[100vw] flex-col bg-goHubGreen">
+    <div className="flex min-h-screen min-w-[100vw] flex-col bg-black">
       <Header
         search={search}
         onChange={handleChange}
         onSearch={handleSearch}
-        className="flex h-16 w-full flex-row gap-3 p-3"
+        className=""
       />
       <main className="flex w-full flex-col items-center bg-gray-400">
+        <PokemonSectionTabs />
         {pokemonProfile && (
           <pre className="text-left">
             {JSON.stringify(pokemonProfile, null, 2)}

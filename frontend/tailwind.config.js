@@ -7,7 +7,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        goHubGreen: "#09c077"
+        goHubGreen: "#09c077",
+        mainGrey: "rgb(245, 245, 245)",
+        searchBarPlaceholderColor: "#1d855c",
+        SectionTabBackgroundColor: "#F0F0E5",
+        tabHoverColor: "#2A8C5A",
       }
     },
   },
