@@ -1,13 +1,19 @@
+import { getPokemonImage } from "../utils/getPokemonImage";
+import { getPokemonTypeColor, type PokemonType } from "../utils/pokemonTypeColorMap";
+import PokemonTypeIcon from "./PokemonTypeIcon";
+
 interface PokemonArtworkProps {
-  src: string;
-  alt: string;
+  id: number;
+  name: string;
+  types: PokemonType[];
   className?: string;
 }
 
-const PokemonArtwork = ({ src, alt, className }: PokemonArtworkProps) => {
+const PokemonArtwork = ({ id, name, types, className }: PokemonArtworkProps) => {
   return (
-    <div className="flex h-64 w-full items-center justify-center">
-      <img src={src} alt={alt} className={`max-h-full max-w-full object-contain ${className}`} />
+    <div className="flex h-auto w-full flex-col items-center justify-center gap-3 bg-black py-4" style={{ background: `linear-gradient(white 40%, ${getPokemonTypeColor(types[0])})` }}>
+      <img src={getPokemonImage(id)} alt={`Official ${name} Artwork`} className={`max-h-60 max-w-full object-contain ${className}`} />
+      <PokemonTypeIcon types={types} />
     </div>
   )
 }
