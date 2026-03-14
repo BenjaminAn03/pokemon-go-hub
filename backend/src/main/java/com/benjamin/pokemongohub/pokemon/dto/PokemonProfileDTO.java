@@ -1,12 +1,13 @@
 package com.benjamin.pokemongohub.pokemon.dto;
 
+import java.util.List;
+
 import com.benjamin.pokemongohub.pokemon.entity.PokemonStats;
 
 public class PokemonProfileDTO {
     private Long id;
     private String name;
-    private String type1;
-    private String type2;
+    private List<String> types;
     private Integer maxCp;
     private PokemonStats stats;
     private TypeEffectivenessDTO typeEffectiveness;
@@ -15,12 +16,11 @@ public class PokemonProfileDTO {
 
     }
 
-    public PokemonProfileDTO(Long id, String name, String type1, String type2, Integer maxCp, PokemonStats stats,
+    public PokemonProfileDTO(Long id, String name, List<String> types, Integer maxCp, PokemonStats stats,
             TypeEffectivenessDTO typeEffectiveness) {
         this.id = id;
         this.name = name;
-        this.type1 = type1;
-        this.type2 = type2;
+        this.types = types;
         this.maxCp = maxCp;
         this.stats = stats;
         this.typeEffectiveness = typeEffectiveness;
@@ -34,12 +34,8 @@ public class PokemonProfileDTO {
         return name;
     }
 
-    public String getType1() {
-        return type1;
-    }
-
-    public String getType2() {
-        return type2;
+    public List<String> getTypes() {
+        return types;
     }
 
     public Integer getMaxCp() {
