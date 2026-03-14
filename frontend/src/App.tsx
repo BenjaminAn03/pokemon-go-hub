@@ -3,17 +3,23 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import PokemonSectionTabs from './components/PokemonSectionTabs/PokemonSectionTabs';
+import Panel from './components/Panel';
+import PokemonArtwork from './components/PokemonArtwork';
+import { getPokemonImage } from './utils/getPokemonImage';
+import PanelLayout from './components/PanelLayout';
+import type { PokemonProfile } from './interfaces/PokemonProfile';
+import { getPokemonHeaderStyle } from './utils/getPokemonHeaderStyle';
 
 function App() {
   const [search, setSearch] = useState("")
-  const [pokemonProfile, setPokemonProfile] = useState(null)
+  const [pokemonProfile, setPokemonProfile] = useState<PokemonProfile | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);
   }
 
-  const handleSearch = async (event: React.FormEvent) => {
+  const handleSearch = async (event: React.SubmitEvent) => {
     event?.preventDefault()
 
     try {
@@ -44,11 +50,19 @@ function App() {
         className=""
       />
       <main className="flex w-full flex-col items-center bg-gray-400">
-        <PokemonSectionTabs />
         {pokemonProfile && (
-          <pre className="text-left">
-            {JSON.stringify(pokemonProfile, null, 2)}
-          </pre>
+          <>
+            <PokemonSectionTabs pokemonName={pokemonProfile.name} pokemonSrc={getPokemonImage(pokemonProfile.id)} />
+            <PanelLayout>
+              <Panel title={pokemonProfile.name} headerStyle={getPokemonHeaderStyle(pokemonProfile.types)} >
+                <PokemonArtwork src={getPokemonImage(pokemonProfile.id)} alt={`Official ${pokemonProfile.name} Artwork`} />
+                <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
+              </Panel>
+              <Panel title={`${pokemonProfile.name} best moveset`} headerStyle={getPokemonHeaderStyle(pokemonProfile.types)} >
+                <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
+              </Panel>
+            </PanelLayout>
+          </>
         )}
 
         {error && <p className="text-red-500">{error}</p>}

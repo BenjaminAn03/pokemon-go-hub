@@ -17,25 +17,27 @@ const Tab = ({ title, src, alt, active, isIcon, onClick, className }: TabProps) 
         flex items-center gap-1
         rounded-2xl
         border
-        px-3
+        px-2
         text-xl font-[650]
+        decoration-transparent
         shadow-xl
-        transition
+        transition-colors
+        hover:underline hover:decoration-goHubGreen
         ${active
           ? "border-tabHoverColor bg-tabHoverColor text-white hover:opacity-90"
           : "hover:border-tabHoverColor hover:bg-tabHoverColor border-gray-300 bg-white hover:text-white"
         }
       `}
     >
-      <div className="flex size-12 items-center justify-center">
+      <div className="flex size-11 items-center justify-center">
         <img src={src} alt={alt} className={`
             max-h-full max-w-full
             ${isIcon ? (active ? "brightness-0 invert" : "brightness-0") : ""}
           `}
         />
       </div>
-      <div className="flex h-12 items-center">
-        <span>{title}</span>
+      <div className="flex h-12 items-center whitespace-nowrap">
+        <span className="">{title}</span>
       </div>
     </button>
   )

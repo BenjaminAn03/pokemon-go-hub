@@ -32,6 +32,12 @@ public class PokemonService {
         return pokemonRepository.findByType(type.toLowerCase());
     }
 
+    private List<String> formatPokemonTypes(String type1, String type2) {
+        return type2 == null
+                ? List.of(type1)
+                : List.of(type1, type2);
+    }
+
     // move CP calculation to service file
     private int calculatePokemonMaxCP(Pokemon pokemon) {
         PokemonStats stats = pokemon.getStats();
@@ -48,8 +54,7 @@ public class PokemonService {
         return new PokemonProfileDTO(
                 pokemon.getId(),
                 pokemon.getName(),
-                pokemon.getType1(),
-                pokemon.getType2(),
+                formatPokemonTypes(pokemon.getType1(), pokemon.getType2()),
                 calculatePokemonMaxCP(pokemon),
                 pokemon.getStats(),
                 typeChartService.classifyTypeChartForPokemon(pokemon));
