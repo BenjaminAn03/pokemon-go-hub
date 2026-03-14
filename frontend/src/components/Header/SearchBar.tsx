@@ -9,12 +9,12 @@ interface SearchBarProps {
 const SearchBar = ({ value, placeholder, className, onChange, onSearch, }: SearchBarProps) => {
   return (
     <>
-      <form onSubmit={onSearch} className='w-full'>
+      <form onSubmit={onSearch} className='w-full '>
         <input
           type="text"
           value={value}
           placeholder={placeholder}
-          className={className}
+          className={`bg-searchBarPlaceholderColor text-lg text-white ${className}`}
           onChange={onChange}
         />
       </form>
@@ -22,4 +22,4 @@ const SearchBar = ({ value, placeholder, className, onChange, onSearch, }: Searc
   );
 };
 
-export default SearchBar;
+export default SearchBar; 
