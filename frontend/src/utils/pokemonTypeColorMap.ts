@@ -20,3 +20,7 @@ export const POKEMON_TYPE_COLORS = {
 }
 
 export type PokemonType = keyof typeof POKEMON_TYPE_COLORS
+
+export function getPokemonTypeColor(type: PokemonType) {
+  return POKEMON_TYPE_COLORS[type]
+}

@@ -8,7 +8,7 @@ import PokemonArtwork from './components/PokemonArtwork';
 import { getPokemonImage } from './utils/getPokemonImage';
 import PanelLayout from './components/PanelLayout';
 import type { PokemonProfile } from './interfaces/PokemonProfile';
-import { getPokemonHeaderStyle } from './utils/getPokemonHeaderStyle';
+import Subheader from './components/Subheader';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -54,11 +54,13 @@ function App() {
           <>
             <PokemonSectionTabs pokemonName={pokemonProfile.name} pokemonSrc={getPokemonImage(pokemonProfile.id)} />
             <PanelLayout>
-              <Panel title={pokemonProfile.name} headerStyle={getPokemonHeaderStyle(pokemonProfile.types)} >
-                <PokemonArtwork src={getPokemonImage(pokemonProfile.id)} alt={`Official ${pokemonProfile.name} Artwork`} />
+              <Panel title={pokemonProfile.name} types={pokemonProfile.types} >
+                <PokemonArtwork id={pokemonProfile.id} name={pokemonProfile.name} types={pokemonProfile.types} />
+                //add a panel content component?
+                <Subheader title={`${pokemonProfile.name} Type Chart`} />
                 <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
               </Panel>
-              <Panel title={`${pokemonProfile.name} best moveset`} headerStyle={getPokemonHeaderStyle(pokemonProfile.types)} >
+              <Panel title={`${pokemonProfile.name} best moveset`} types={pokemonProfile.types} >
                 <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
               </Panel>
             </PanelLayout>
