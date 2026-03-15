@@ -20,12 +20,12 @@ const Tab = ({ title, src, alt, active, isIcon, onClick, className }: TabProps) 
         px-2
         text-xl font-[650]
         decoration-transparent
-        shadow-xl
+        shadow-md
         transition-colors
         hover:underline hover:decoration-goHubGreen
         ${active
           ? "border-tabHoverColor bg-tabHoverColor text-white hover:opacity-90"
-          : "hover:border-tabHoverColor hover:bg-tabHoverColor border-gray-300 bg-white hover:text-white"
+          : "border-gray-300 bg-white hover:border-tabHoverColor hover:bg-tabHoverColor hover:text-white"
         }
       `}
     >
