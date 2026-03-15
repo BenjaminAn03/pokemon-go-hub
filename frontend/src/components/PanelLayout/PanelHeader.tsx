@@ -1,5 +1,5 @@
-import { getPokemonHeaderStyle } from "../utils/getPokemonHeaderStyle";
-import type { PokemonType } from "../utils/pokemonTypeColorMap";
+import { getPokemonHeaderStyle } from "../../utils/getPokemonHeaderStyle";
+import type { PokemonType } from "../../utils/pokemonTypeColorMap";
 
 interface PanelHeaderProps {
   title: string;

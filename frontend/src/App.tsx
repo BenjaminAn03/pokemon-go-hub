@@ -3,12 +3,14 @@ import { useState } from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import PokemonSectionTabs from './components/PokemonSectionTabs/PokemonSectionTabs';
-import Panel from './components/Panel';
+import Panel from './components/PanelLayout/Panel';
 import PokemonArtwork from './components/PokemonArtwork';
 import { getPokemonImage } from './utils/getPokemonImage';
-import PanelLayout from './components/PanelLayout';
+import PanelLayout from './components/PanelLayout/PanelLayout';
 import type { PokemonProfile } from './interfaces/PokemonProfile';
-import Subheader from './components/Subheader';
+import Main from './components/Main/Main';
+import TypeChart from './components/TypeChart/TypeChart';
+import Section from './components/Section';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -49,19 +51,20 @@ function App() {
         onSearch={handleSearch}
         className=""
       />
-      <main className="flex w-full flex-col items-center bg-gray-400">
+      <Main>
         {pokemonProfile && (
           <>
             <PokemonSectionTabs pokemonName={pokemonProfile.name} pokemonSrc={getPokemonImage(pokemonProfile.id)} />
             <PanelLayout>
               <Panel title={pokemonProfile.name} types={pokemonProfile.types} >
                 <PokemonArtwork id={pokemonProfile.id} name={pokemonProfile.name} types={pokemonProfile.types} />
-                //add a panel content component?
-                <Subheader title={`${pokemonProfile.name} Type Chart`} />
-                <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
+                <Section title={`${pokemonProfile.name} Type Chart`}>
+                  <TypeChart pokemonName={pokemonProfile.name} effectiveness={pokemonProfile.typeEffectiveness} />
+                </Section>
               </Panel>
+
               <Panel title={`${pokemonProfile.name} best moveset`} types={pokemonProfile.types} >
-                <pre className="border-grey-200 w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
+                <pre className="w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
               </Panel>
             </PanelLayout>
           </>
@@ -69,8 +72,8 @@ function App() {
 
         {error && <p className="text-red-500">{error}</p>}
 
-      </main>
-    </div>
+      </Main>
+    </div >
   )
 }
 

@@ -12,6 +12,11 @@ export default {
         searchBarPlaceholderColor: "#1d855c",
         SectionTabBackgroundColor: "#F0F0E5",
         tabHoverColor: "#2A8C5A",
+      },
+      backgroundImage: {
+        "type-artwork": "linear-gradient(white, var(--type-color))",
+        "type-weakness": "linear-gradient(-90deg, white, var(--type-color))",
+        "type-resistance": "linear-gradient(-90deg, white, var(--type-color))",
       }
     },
   },

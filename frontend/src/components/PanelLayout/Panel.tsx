@@ -1,4 +1,4 @@
-import type { PokemonType } from "../utils/pokemonTypeColorMap";
+import type { PokemonType } from "../../utils/pokemonTypeColorMap";
 import PanelHeader from "./PanelHeader";
 
 interface PanelProps {
