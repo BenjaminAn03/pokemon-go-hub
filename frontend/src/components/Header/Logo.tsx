@@ -6,7 +6,7 @@ const Logo = ({ className }: LogoProps) => {
   return (
     <>
       <img
-        src="/go-hub-logo.svg"
+        src="./icons/go-hub-logo.svg"
         alt="GoHub logo"
         className={className}
       />
