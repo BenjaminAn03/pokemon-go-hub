@@ -12,7 +12,7 @@ interface PokemonArtworkProps {
 const PokemonArtwork = ({ id, name, types, className }: PokemonArtworkProps) => {
   return (
     <div
-      className="bg-type-artwork flex h-auto w-full flex-col items-center justify-center gap-3 py-4"
+      className="flex h-auto w-full flex-col items-center justify-center gap-3 bg-type-artwork py-4"
       style={{ "--type-color": lightenRGB(getPokemonTypeColor(types[0]), 0.4) } as React.CSSProperties}
     >
       <img src={getPokemonImage(id)} alt={`Official ${name} Artwork`} className={`max-h-60 max-w-full object-contain ${className}`} />

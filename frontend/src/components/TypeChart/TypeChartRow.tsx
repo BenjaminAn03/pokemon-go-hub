@@ -21,7 +21,7 @@ const TypeChartRow = ({ effectiveness, types }: TypeChartRowProps) => {
           {`${sign}${multiplier}%`}
         </div>
       </div>
-      <div className="flex items-center justify-center gap-1 px-2 pr-3">
+      <div className="flex items-center justify-center gap-1 px-3">
         {types.map((type) => (
           <TypeLabel key={type} type={type} />
         ))}
