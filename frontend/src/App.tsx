@@ -45,7 +45,7 @@ function App() {
   }
 
   return (
-    <div className="flex min-h-screen min-w-[100vw] flex-col bg-black">
+    <div className="bg-mainBeige flex min-h-screen min-w-[100vw] flex-col">
       <Header
         search={search}
         onChange={handleChange}

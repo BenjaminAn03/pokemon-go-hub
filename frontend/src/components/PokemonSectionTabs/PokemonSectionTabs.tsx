@@ -12,7 +12,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
   const [activeTab, setActiveTab] = useState<PokemonTab>("stats");
 
   return (
-    <div className={`flex w-full justify-center bg-SectionTabBackgroundColor ${className}`}>
+    <div className={`bg-mainBeige flex w-full justify-center ${className}`}>
       <div className="flex w-full max-w-7xl gap-2 overflow-auto px-3 py-5">
         <Tab
           title="Stats"
