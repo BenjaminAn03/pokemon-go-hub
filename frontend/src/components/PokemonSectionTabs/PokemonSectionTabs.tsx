@@ -23,7 +23,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="Counters"
-          src="/Raid_icon.png"
+          src="./icons/Raid_icon.png"
           alt="Counters Artwork"
           active={activeTab === "counters"}
           isIcon
@@ -31,7 +31,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="CP & IV"
-          src="/Binocular_icon.webp"
+          src="./icons/Binocular_icon.webp"
           alt="Binoculars Artwork"
           active={activeTab === "cpiv"}
           isIcon
@@ -39,7 +39,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="PvP"
-          src="/Battle_icon.webp"
+          src="./icons/Battle_icon.webp"
           alt="PvP Artwork"
           active={activeTab === "pvp"}
           isIcon
@@ -47,7 +47,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="Moves"
-          src="/Pokeball_icon.png"
+          src="./icons/Pokeball_icon.png"
           alt="PokeBall Artwork"
           active={activeTab === "moves"}
           isIcon

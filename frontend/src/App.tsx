@@ -11,6 +11,7 @@ import type { PokemonProfile } from './interfaces/PokemonProfile';
 import Main from './components/Main/Main';
 import TypeChart from './components/TypeChart/TypeChart';
 import Section from './components/Section';
+import StatsChart from './components/StatsChart';
 
 function App() {
   const [search, setSearch] = useState("")
@@ -61,11 +62,13 @@ function App() {
                 <Section title={`${pokemonProfile.name} Type Chart`}>
                   <TypeChart pokemonName={pokemonProfile.name} effectiveness={pokemonProfile.typeEffectiveness} />
                 </Section>
+                <Section title={`${pokemonProfile.name} Stats`}>
+                  <StatsChart stats={{ maxCp: pokemonProfile.maxCp, ...pokemonProfile.stats }} />
+                </Section>
               </Panel>
-
-              <Panel title={`${pokemonProfile.name} best moveset`} types={pokemonProfile.types} >
+              {/* <Panel title={`${pokemonProfile.name} best moveset`} types={pokemonProfile.types} >
                 <pre className="w-full border">{JSON.stringify(pokemonProfile, null, 2)}</pre>
-              </Panel>
+              </Panel> */}
             </PanelLayout>
           </>
         )}

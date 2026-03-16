@@ -10,7 +10,7 @@ interface PanelProps {
 
 const Panel = ({ title, types, children, className }: PanelProps) => {
   return (
-    <div className={`flex size-full flex-col rounded-xl bg-white shadow-md ${className}`}>
+    <div className={`flex size-full flex-col rounded-xl bg-white pb-3 shadow-md ${className}`}>
       <PanelHeader title={title} types={types} />
       <pre className="flex flex-col items-center justify-center gap-5">
         {children}
