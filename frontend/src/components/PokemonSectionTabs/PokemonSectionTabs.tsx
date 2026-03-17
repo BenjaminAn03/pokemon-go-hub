@@ -13,7 +13,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
 
   return (
     <div className={`bg-mainBeige flex w-full justify-center ${className}`}>
-      <div className="flex w-full max-w-7xl gap-2 overflow-auto px-3 pb-5 pt-2">
+      <div className="flex w-full max-w-7xl gap-2 overflow-auto px-3 py-2">
         <Tab
           title="Stats"
           src={pokemonSrc}

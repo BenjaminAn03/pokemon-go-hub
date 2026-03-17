@@ -4,7 +4,7 @@ import PanelLayout from "../components/PanelLayout/PanelLayout";
 const PokemonNotFoundPage = () => {
   return <>
     <PanelLayout>
-      <Panel title="Pokémon not found!" types={["grass"]} />
+      <Panel title="Pokémon not available yet!" types={["grass"]} />
     </PanelLayout>
   </>
 }
