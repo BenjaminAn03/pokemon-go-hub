@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import SearchBar from "./SearchBar"
 import Logo from "./Logo";
 
@@ -10,10 +12,12 @@ interface HeaderProps {
 
 const Header = ({ search, onChange, onSearch, className }: HeaderProps) => {
   return (
-    <div className={`flex w-full justify-center bg-goHubGreen ${className}`}>
+    <header className={`flex w-full justify-center bg-goHubGreen ${className}`}>
       <div className="flex w-full max-w-7xl gap-5 p-3">
         <div className="flex items-center justify-center">
-          <Logo className="h-10 w-auto" />
+          <Link to="/">
+            <Logo className="h-10 w-auto" />
+          </Link>
         </div>
         <div className="flex-1">
           <SearchBar
@@ -25,7 +29,7 @@ const Header = ({ search, onChange, onSearch, className }: HeaderProps) => {
           />
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 
