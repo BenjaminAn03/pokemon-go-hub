@@ -4,7 +4,7 @@ interface MainProps {
 
 const Main = ({ children }: MainProps) => {
   return (
-    <main className="flex w-full flex-col items-center bg-SectionTabBackgroundColor">
+    <main className="flex size-full flex-col items-center bg-SectionTabBackgroundColor py-3">
       {children}
     </main>
   )

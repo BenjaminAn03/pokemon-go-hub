@@ -6,7 +6,7 @@ interface SearchBarProps {
   onSearch: (event: React.SubmitEvent) => void;
 }
 
-const SearchBar = ({ value, placeholder, className, onChange, onSearch, }: SearchBarProps) => {
+const SearchBar = ({ value, placeholder, onChange, onSearch, className }: SearchBarProps) => {
   return (
     <>
       <form onSubmit={onSearch} className='w-full '>

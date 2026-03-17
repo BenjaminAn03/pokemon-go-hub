@@ -12,8 +12,8 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
   const [activeTab, setActiveTab] = useState<PokemonTab>("stats");
 
   return (
-    <div className={`flex w-full justify-center bg-SectionTabBackgroundColor ${className}`}>
-      <div className="flex w-full max-w-7xl gap-2 overflow-auto px-3 py-5">
+    <div className={`bg-mainBeige flex w-full justify-center ${className}`}>
+      <div className="flex w-full max-w-7xl gap-2 overflow-auto px-3 py-2">
         <Tab
           title="Stats"
           src={pokemonSrc}
@@ -21,9 +21,11 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
           active={activeTab === "stats"}
           onClick={() => setActiveTab("stats")}
         />
+        {/* 
+        Implement when ready
         <Tab
           title="Counters"
-          src="./icons/Raid_icon.png"
+          src="/icons/Raid_icon.png"
           alt="Counters Artwork"
           active={activeTab === "counters"}
           isIcon
@@ -31,7 +33,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="CP & IV"
-          src="./icons/Binocular_icon.webp"
+          src="/icons/Binocular_icon.webp"
           alt="Binoculars Artwork"
           active={activeTab === "cpiv"}
           isIcon
@@ -39,7 +41,7 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="PvP"
-          src="./icons/Battle_icon.webp"
+          src="/icons/Battle_icon.webp"
           alt="PvP Artwork"
           active={activeTab === "pvp"}
           isIcon
@@ -47,12 +49,12 @@ const PokemonSectionTabs = ({ pokemonName, pokemonSrc, className }: PokemonSecti
         />
         <Tab
           title="Moves"
-          src="./icons/Pokeball_icon.png"
+          src="/icons/Pokeball_icon.png"
           alt="PokeBall Artwork"
           active={activeTab === "moves"}
           isIcon
           onClick={() => setActiveTab("moves")}
-        />
+        /> */}
       </div>
     </div>
   )
